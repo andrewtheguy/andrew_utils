@@ -1,6 +1,6 @@
 import hashlib
 
-def second_to_time(seconds):
+def seconds_to_time(seconds,include_decimals=True):
     """Converts seconds (including floating-point numbers) to hh:mm:ss format.
 
     Args:
@@ -11,8 +11,13 @@ def second_to_time(seconds):
     """
     hours = int(seconds // 3600)
     minutes = int((seconds % 3600) // 60)
-    remaining_seconds = seconds % 60
-    return f"{hours:02d}:{minutes:02d}:{remaining_seconds:09.6f}"
+    if include_decimals:
+        remaining_seconds = seconds % 60
+        return f"{hours:02d}:{minutes:02d}:{remaining_seconds:09.6f}"
+    else:
+        remaining_seconds = int(seconds % 60)
+        return f"{hours:02d}:{minutes:02d}:{remaining_seconds:02d}"
+    
 
 def get_md5sum(file_path):
     with open(file_path, "rb") as f:
