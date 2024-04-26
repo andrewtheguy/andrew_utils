@@ -19,7 +19,7 @@ def seconds_to_time(seconds,include_decimals=True):
         return f"{hours:02d}:{minutes:02d}:{remaining_seconds:02d}"
     
 
-def get_md5sum(file_path):
+def get_md5sum_file(file_path):
     with open(file_path, "rb") as f:
         file_hash = hashlib.md5()
         while chunk := f.read(8192):
