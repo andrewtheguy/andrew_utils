@@ -2,7 +2,7 @@
 import os
 import unittest
 
-from andrew_utils import get_md5sum
+from andrew_utils import get_md5sum_file
 
 
 class TestMd5sum(unittest.TestCase):
