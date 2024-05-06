@@ -12,7 +12,7 @@ def seconds_to_time(seconds,include_decimals=True):
     hours = int(seconds // 3600)
     minutes = int((seconds % 3600) // 60)
     if include_decimals:
-        precision = 3
+        #precision = 3
         remaining_seconds = seconds % 60
         return f"{hours:02d}:{minutes:02d}:{remaining_seconds:06.3f}"
     else:
