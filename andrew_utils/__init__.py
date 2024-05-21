@@ -1,22 +1,26 @@
+import datetime
 import hashlib
+import decimal
 
 def seconds_to_time(seconds,include_decimals=True):
-    """Converts seconds (including floating-point numbers) to hh:mm:ss format.
-
-    Args:
-        seconds: The number of seconds to convert (can be a float).
-
-    Returns:
-        A string representing the time in hh:mm:ss format.
-    """
-    hours = int(seconds // 3600)
-    minutes = int((seconds % 3600) // 60)
+    milliseconds = round(seconds*1000)
+    #seconds = round(seconds,3)
+    minutes_remaining,remaining_milliseconds = divmod(milliseconds,60000)
+    hours,minutes = divmod(minutes_remaining, 60)
+    #hours = round(hours)
+    #minutes = round(minutes)
+    
     if include_decimals:
+        #return str(datetime.timedelta(seconds=round(seconds,3)))
         #precision = 3
-        remaining_seconds = seconds % 60
-        return f"{hours:02d}:{minutes:02d}:{remaining_seconds:06.3f}"
+        #remaining_milliseconds = round(seconds * 1000)
+        #print(remaining_milliseconds)
+        remaining_seconds=f"{remaining_milliseconds:05d}"
+        remaining_seconds=remaining_seconds[:2]+'.'+remaining_seconds[2:]
+        return f"{hours:02d}:{minutes:02d}:{remaining_seconds}"
     else:
-        remaining_seconds = int(seconds % 60)
+        #return str(datetime.timedelta(seconds=round(seconds)))
+        remaining_seconds = round(remaining_milliseconds/1000)
         return f"{hours:02d}:{minutes:02d}:{remaining_seconds:02d}"
     
 
