@@ -16,7 +16,7 @@ def seconds_to_time(seconds,include_decimals=True):
         #remaining_milliseconds = round(seconds * 1000)
         #print(remaining_milliseconds)
         remaining_seconds=f"{remaining_milliseconds:05d}"
-        remaining_seconds=remaining_seconds[:2]+'.'+remaining_seconds[2:]
+        remaining_seconds=remaining_seconds[:-3]+'.'+remaining_seconds[-3:]
         return f"{hours:02d}:{minutes:02d}:{remaining_seconds}"
     else:
         #return str(datetime.timedelta(seconds=round(seconds)))
