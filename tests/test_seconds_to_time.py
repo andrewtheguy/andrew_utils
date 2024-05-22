@@ -46,5 +46,14 @@ class TestSecondsToTime(unittest.TestCase):
     def test_hours_no_decimal_round_up(self):
         self.assertEqual(seconds_to_time(3710.987654,include_decimals=False), "01:01:51")
 
+    def test_hours_no_decimal_round_up_to_minute(self):
+        self.assertEqual(seconds_to_time(59.987,include_decimals=False), "00:01:00")
+        self.assertEqual(seconds_to_time(119.987,include_decimals=False), "00:02:00")
+
+
+    def test_hours_no_decimal_round_up_to_hour(self):
+        self.assertEqual(seconds_to_time(3599.987,include_decimals=False), "01:00:00")
+        self.assertEqual(seconds_to_time(7199.987,include_decimals=False), "02:00:00")
+
     def test_day_no_decimal(self):
         self.assertEqual(seconds_to_time(86510.1234,include_decimals=False), "24:01:50")
