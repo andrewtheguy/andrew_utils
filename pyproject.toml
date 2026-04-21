@@ -1,6 +1,6 @@
 [project]
 name = "andrew-utils"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = [{ name = "Andrew Chen", email = "andrew@jaanuu.com" }]
 readme = "README.md"
